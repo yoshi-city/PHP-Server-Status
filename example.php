@@ -18,17 +18,23 @@ ERROR_REPORTING(0);
 						//IP 							(Takes priority over domain if provided. Leave empty to use domain)
 						//Port number 					(0-65535)
 						//Should the port be displayed? (true/false)
-						//Interval/Cache expiry time	(time in seconds)
-		
-					require_once("phpss/PHPServerStatus.class.php");
-
-					$netobj = new PHPServerStatus("gb", "internal server", "localhost", "127.0.0.1", 80, true, 300);
-					echo  $netobj -> GetStatus();
-
-					$netobj = new PHPServerStatus("fr", "external server", "google.fr", "", 80, false, 600);
-					echo  $netobj -> GetStatus();
+						//Interval/Cache expiry time	(time in seconds, must not be less than your cronjob time if you exclusively use that to use that to record status)
+						//Bypass cache 					(set to false on your viewing page, true on your cronjob)
+					
+					require_once "phpss/PHPServerStatus.class.php";
+					$phpssobj = new PHPServerStatus();
+					echo $phpssobj -> GetStatus("gb", "local server",  "localhost", "", 80, false, 300, false);
+					echo $phpssobj -> GetStatus("fr", "external server",  "google.fr", "", 80, false, 300, false);			
 				?>
 			</tbody>
 		</table>
+
+		<Br>
+
+		<?php
+			require_once "phpss/showstats.class.php";
+			$showobj = new showstats;
+			echo $showobj -> ShowStats();
+		?>
 	</body>
 </html>

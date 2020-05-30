@@ -1,16 +1,12 @@
 # PHP-Server-Status
 Adds a server status to your website, as featured on https://yoshi.city/servers.php
 
-Saves results to a cache file to avoid querying servers too often, individually configurable with the interval parameter.
+Saves queries to a cache file to avoid pinging servers too often.
 
-Displays results as a table.
-
-# Usage
-
-1. Include phpss/PHPNetworkStatus.class.php
-2. Create new instance of PHPNetworkStatus
-3. Call GetStatus() function and echo it to the page, this can be done as many time as you like
+You can operate runstatistics.php as a cronjob to record server availabilty at set intervals and use showstats.php to display that data in a nice format. It is similar to the GitHub status page, but a lot simpler.
 
 # Code example
 
-See example.php for full code examples and required parameters
+See example.php for full code examples and required parameters.
+
+If you have any questions I would be happy to help.

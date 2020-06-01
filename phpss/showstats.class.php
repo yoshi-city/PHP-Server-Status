@@ -6,7 +6,7 @@ class showstats{
         $stat_files = glob($_SERVER['DOCUMENT_ROOT']."/phpss/stats/*.stat");
 
         //Last 96 statistics entries = 24 hours of checking every 15 minutes
-        $stat_files = array_slice($stat_files, count($stat_files) - 96, count($stat_files));
+        $stat_files = array_slice($stat_files, count($stat_files) - 96, 96);
 
         $html  = "<link rel='stylesheet' type='text/css' href='/phpss/css/tables.css' />
         <table class='status-history'><tr>";

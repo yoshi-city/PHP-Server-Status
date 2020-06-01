@@ -32,7 +32,7 @@ class statistics extends PHPServerStatus{
             $result = 2;
         }
         
-        $filename = date("d-m-Y_H-i-s").".stat";
+        $filename = date("Y-m-d_H-i-s").".stat";
 
         $title = date("d/m/Y")." at ".date("H:i:s")." GMT";
 
